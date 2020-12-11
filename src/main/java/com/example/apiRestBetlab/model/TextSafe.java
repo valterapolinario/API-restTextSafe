@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 @Entity
-@Table(name ="tb_textSafe")
 public class TextSafe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
