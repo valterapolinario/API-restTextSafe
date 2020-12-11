@@ -1,6 +1,8 @@
 package com.example.apiRestBetlab.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 @Entity
@@ -8,6 +10,8 @@ public class TextSafe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull(message = "Este campo não pode ser nulo")
+    @NotBlank(message = "este campo não pode estar em branco")
     private String description;
 
     public TextSafe() {

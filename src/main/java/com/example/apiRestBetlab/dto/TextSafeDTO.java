@@ -6,14 +6,14 @@ import java.io.Serializable;
 
 public class TextSafeDTO implements Serializable {
     private Long id;
-    private String descriptionDto;
+    private String description;
 
     public TextSafeDTO() {
     }
 
     public TextSafeDTO(TextSafe entity){
         this.id = entity.getId();
-        this.descriptionDto = entity.getDescription();
+        this.description= entity.getDescription();
     }
 
     public Long getId() {
@@ -24,11 +24,11 @@ public class TextSafeDTO implements Serializable {
         this.id = id;
     }
 
-    public String getDescriptionDto() {
-        return descriptionDto;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptionDto(String descriptionDto) {
-        this.descriptionDto = descriptionDto;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
