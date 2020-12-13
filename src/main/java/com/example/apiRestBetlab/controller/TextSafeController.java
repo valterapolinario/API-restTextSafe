@@ -1,6 +1,7 @@
 package com.example.apiRestBetlab.controller;
 
 
+import com.example.apiRestBetlab.converter.SavedTextConverter;
 import com.example.apiRestBetlab.dto.TextSafeDTO;
 import com.example.apiRestBetlab.model.TextSafe;
 import com.example.apiRestBetlab.services.TextSafeService;
@@ -30,13 +31,13 @@ public class TextSafeController {
             @RequestParam(value = "direction",defaultValue = "DESC") String direction){
 
         Page<TextSafe> listOfPages = service.findAllPages(page,linesPerPage,orderBy,direction);
-        Page<TextSafeDTO> listOfDto = listOfPages.map((obj -> new TextSafeDTO(obj)));
-        return ResponseEntity.ok().body(listOfDto);
+        Page<TextSafeDTO> listOfPagesDto = listOfPages.map((objectPageOfTextSave -> SavedTextConverter.converterToDto(objectPageOfTextSave)));
+        return ResponseEntity.ok().body(listOfPagesDto);
     }
     @PostMapping
     public ResponseEntity<TextSafeDTO> insert (@Valid @RequestBody TextSafeDTO objectTextSafeDto){
-        TextSafeDTO newDto = service.insert(objectTextSafeDto);
-        return ResponseEntity.ok().body(newDto);
+
+        return ResponseEntity.ok().body(SavedTextConverter.converterToDto( service.insert(objectTextSafeDto)));
     }
 
 

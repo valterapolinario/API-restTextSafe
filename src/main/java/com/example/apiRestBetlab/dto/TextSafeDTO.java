@@ -11,10 +11,7 @@ public class TextSafeDTO implements Serializable {
     public TextSafeDTO() {
     }
 
-    public TextSafeDTO(TextSafe entity){
-        this.id = entity.getId();
-        this.description= entity.getDescription();
-    }
+
 
     public Long getId() {
         return id;

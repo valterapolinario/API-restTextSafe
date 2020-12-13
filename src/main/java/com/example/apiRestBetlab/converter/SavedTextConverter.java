@@ -14,6 +14,7 @@ public class SavedTextConverter {
     public static TextSafeDTO converterToDto(TextSafe entity){
         TextSafeDTO objectDTO = new TextSafeDTO();
         objectDTO.setDescription(entity.getDescription());
+        objectDTO.setId(entity.getId());
         return objectDTO;
     }
 }
