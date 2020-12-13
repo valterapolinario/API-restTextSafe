@@ -35,9 +35,9 @@ public class TextSafeController {
         return ResponseEntity.ok().body(listOfPagesDto);
     }
     @PostMapping
-    public ResponseEntity<TextSafeDTO> insert (@Valid @RequestBody TextSafeDTO objectOfSavedText){
+    public ResponseEntity<TextSafeDTO> insert (@Valid @RequestBody TextSafe entity){
 
-        return ResponseEntity.ok().body(SavedTextConverter.converterToDto( service.insert(objectOfSavedText)));
+        return ResponseEntity.ok().body( service.insert(entity));
     }
 
 
