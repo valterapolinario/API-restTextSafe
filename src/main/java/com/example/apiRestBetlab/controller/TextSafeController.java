@@ -31,13 +31,13 @@ public class TextSafeController {
             @RequestParam(value = "direction",defaultValue = "DESC") String direction){
 
         Page<TextSafe> listOfPages = service.findAllPages(page,linesPerPage,orderBy,direction);
-        Page<TextSafeDTO> listOfPagesDto = listOfPages.map((objectPageOfTextSave -> SavedTextConverter.converterToDto(objectPageOfTextSave)));
+        Page<TextSafeDTO> listOfPagesDto = listOfPages.map((objectOfSavedTextPages -> SavedTextConverter.converterToDto(objectOfSavedTextPages)));
         return ResponseEntity.ok().body(listOfPagesDto);
     }
     @PostMapping
-    public ResponseEntity<TextSafeDTO> insert (@Valid @RequestBody TextSafeDTO objectTextSafeDto){
+    public ResponseEntity<TextSafeDTO> insert (@Valid @RequestBody TextSafeDTO objectOfSavedText){
 
-        return ResponseEntity.ok().body(SavedTextConverter.converterToDto( service.insert(objectTextSafeDto)));
+        return ResponseEntity.ok().body(SavedTextConverter.converterToDto( service.insert(objectOfSavedText)));
     }
 
 

@@ -27,13 +27,9 @@ public class TextSafeService {
 
 
     @Transactional
-    public TextSafe insert (TextSafeDTO objectTextSafeDto){
+    public TextSafe insert (TextSafeDTO savedTextOFbject){
 
-
-
-
-
-        return dao.save(SavedTextConverter.converterToEntity(objectTextSafeDto));
+        return dao.save(SavedTextConverter.converterToEntity(savedTextOFbject));
 
     }
 
