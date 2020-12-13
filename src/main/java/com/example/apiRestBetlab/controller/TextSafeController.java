@@ -23,15 +23,15 @@ public class TextSafeController {
 
 
     @GetMapping
-    public ResponseEntity<Page<TextSafeDTO>>findPage(
+    public ResponseEntity<Page<TextSafeDTO>>findPages(
             @RequestParam(value = "page", defaultValue = "0") Integer page,
             @RequestParam(value = "linesPerPage",defaultValue = "10") Integer linesPerPage,
             @RequestParam(value = "orderBy",defaultValue = "id") String orderBy,
             @RequestParam(value = "direction",defaultValue = "DESC") String direction){
 
-        Page<TextSafe> list = service.findAllPages(page,linesPerPage,orderBy,direction);
-        Page<TextSafeDTO> listDto = list.map((obj -> new TextSafeDTO(obj)));
-        return ResponseEntity.ok().body(listDto);
+        Page<TextSafe> listOfPages = service.findAllPages(page,linesPerPage,orderBy,direction);
+        Page<TextSafeDTO> listOfDto = listOfPages.map((obj -> new TextSafeDTO(obj)));
+        return ResponseEntity.ok().body(listOfDto);
     }
     @PostMapping
     public ResponseEntity<TextSafeDTO> insert (@Valid @RequestBody TextSafeDTO objectTextSafeDto){
