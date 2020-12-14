@@ -26,10 +26,10 @@ public class TextSafeService {
     }
 
 
-    @Transactional
+    @Transactional(readOnly = true)
     public TextSafeDTO insert (TextSafe entity){
 
-        return SavedTextConverter.converterToDto(dao.save(entity));
+        return SavedTextConverter.convertToDto(dao.save(entity));
 
     }
 

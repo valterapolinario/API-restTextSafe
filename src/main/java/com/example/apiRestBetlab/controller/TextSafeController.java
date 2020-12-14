@@ -32,7 +32,7 @@ public class TextSafeController {
             @RequestParam(value = "direction",defaultValue = "DESC") String direction){
 
         Page<TextSafe> listOfPages = service.findAllPages(page,linesPerPage,orderBy,direction);
-        Page<TextSafeDTO> listOfPagesDto = listOfPages.map((objectOfSavedTextPages -> SavedTextConverter.converterToDto(objectOfSavedTextPages)));
+        Page<TextSafeDTO> listOfPagesDto = listOfPages.map((objectOfSavedTextPages -> SavedTextConverter.convertToDto(objectOfSavedTextPages)));
         return ResponseEntity.ok().body(listOfPagesDto);
     }
     @PostMapping

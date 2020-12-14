@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class TextSafeDTO implements Serializable {
     private Long id;
 
-      private String description;
+    private String description;
 
 
 

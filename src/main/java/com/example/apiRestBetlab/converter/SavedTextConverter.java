@@ -5,13 +5,13 @@ import com.example.apiRestBetlab.model.TextSafe;
 
 public class SavedTextConverter {
 
-    public static TextSafe converterToEntity(TextSafeDTO objectDTO){
+    public static TextSafe convertToEntity(TextSafeDTO objectDTO){
         TextSafe entity = new TextSafe();
         entity.setDescription(objectDTO.getDescription());
         return entity;
     }
 
-    public static TextSafeDTO converterToDto(TextSafe entity){
+    public static TextSafeDTO convertToDto(TextSafe entity){
         TextSafeDTO objectTextSafeDTO = new TextSafeDTO();
         objectTextSafeDTO.setDescription(entity.getDescription());
         objectTextSafeDTO.setId(entity.getId());
