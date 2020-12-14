@@ -23,18 +23,26 @@ public class TextSafeService {
   private final TextSafeDao dao;
 
 
-    @Transactional(readOnly = true)
-    public Page<TextSafe> findAllPages(Integer page , Integer linesPerPages,String orderBy,String direction){
-        PageRequest pageRequest = PageRequest.of(page,linesPerPages, Sort.Direction.valueOf(direction),orderBy);
-        return dao.findAll(pageRequest);
-    }
+  // TODO: 14/12/2020 isto poderia ser feito em uma linha so
+  @Transactional(readOnly = true)
+  public Page<TextSafe> listAllPages(Pageable pageable) {
+
+    return dao.findAll(pageable);
+  }
 
 
-    @Transactional(readOnly = true)
-    public TextSafeDTO insert (TextSafe entity){
 
-        return SavedTextConverter.convertToDto(dao.save(entity));
+  public TextSafeDTO insert(TextSafe entity) {
 
-    }
+    return convertToDto(dao.save(entity));
+
+  }
+
+  public  TextSafeDTO convertToDto(TextSafe entity){
+    TextSafeDTO objectTextSafeDTO = new TextSafeDTO();
+    objectTextSafeDTO.setDescription(entity.getDescription());
+    objectTextSafeDTO.setId(entity.getId());
+    return objectTextSafeDTO;
+  }
 
 }
