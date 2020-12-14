@@ -19,13 +19,9 @@ public class ControllerExceptionHandler {
                                                                    HttpServletRequest request){
         ValidationError validationError = new ValidationError(HttpStatus.NOT_FOUND.value(),"Validation Error",System.currentTimeMillis());
 
-
         for(FieldError fieldErrorObject : error.getBindingResult().getFieldErrors()){
             validationError.addError(fieldErrorObject.getField(), fieldErrorObject.getDefaultMessage());
-
-
         }
-
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(validationError);
     }
 }
