@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/textsafe")
+@RequestMapping(value = "/textsafes")
 public class TextSafeController {
     @Autowired
     private TextSafeService service;
@@ -37,7 +38,7 @@ public class TextSafeController {
     @PostMapping
     public ResponseEntity<TextSafeDTO> insert (@Valid @RequestBody TextSafe entity){
 
-        return ResponseEntity.ok().body( service.insert(entity));
+        return new ResponseEntity<>(service.insert(entity),HttpStatus.CREATED);
     }
 
 

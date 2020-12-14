@@ -1,11 +1,14 @@
 package com.example.apiRestBetlab.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
+@Data
 @Entity
 public class TextSafe implements Serializable {
     @Id
