@@ -1,4 +1,6 @@
-package com.example.apiRestBetlab.controller.exception;
+package com.example.apiRestBetlab.exception;
+
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +16,7 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<StandardError> customizeValidationErrors(MethodArgumentNotValidException error,
-                                                         HttpServletRequest request){
+                                                                   HttpServletRequest request){
         ValidationError validationError = new ValidationError(HttpStatus.NOT_FOUND.value(),"Validation Error",System.currentTimeMillis());
 
 

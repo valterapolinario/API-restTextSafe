@@ -1,10 +1,11 @@
 package com.example.apiRestBetlab.controller;
 
 
-import com.example.apiRestBetlab.converter.SavedTextConverter;
+
 import com.example.apiRestBetlab.dto.TextSafeDTO;
 import com.example.apiRestBetlab.model.TextSafe;
 import com.example.apiRestBetlab.services.TextSafeService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/textsafes")
 public class TextSafeController {
