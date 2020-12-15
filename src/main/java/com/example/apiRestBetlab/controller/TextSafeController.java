@@ -18,12 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 @RequiredArgsConstructor
 @RestController
-// TODO: 14/12/2020  toda url deve seguir o padrao de criacao, ela nao pode ser em cammel case
-//  neste caso deveria ser text-safe e ela nao entra em plural
 @RequestMapping(value = "/text-safe")
 public class TextSafeController {
-
-  // TODO: 14/12/2020 autowired deve ser usado em constutores e as variaveis devem ser final
 
   private final TextSafeService service;
   
