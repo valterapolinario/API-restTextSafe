@@ -3,6 +3,7 @@ package com.example.apiRestBetlab.controller;
 
 
 import com.example.apiRestBetlab.dto.TextSafeDTO;
+import com.example.apiRestBetlab.model.MarketMaker;
 import com.example.apiRestBetlab.model.TextSafe;
 import com.example.apiRestBetlab.services.TextSafeService;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +38,7 @@ public class TextSafeController {
     return ResponseEntity.ok().body(service.insert(entity));
 
   }
+
 
 
 }

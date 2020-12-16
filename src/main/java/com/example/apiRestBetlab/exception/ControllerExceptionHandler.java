@@ -1,7 +1,6 @@
 package com.example.apiRestBetlab.exception;
 
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -14,10 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<StandardError> customizeValidationErrors(MethodArgumentNotValidException error,
                                                                    HttpServletRequest request){
-        ValidationError validationError = new ValidationError(HttpStatus.NOT_FOUND.value(),"Validation Error",System.currentTimeMillis());
+        ValidationError validationError = new ValidationError(HttpStatus.NOT_FOUND.value(), "Validation error", System.currentTimeMillis());
 
         for(FieldError fieldErrorObject : error.getBindingResult().getFieldErrors()){
             validationError.addError(fieldErrorObject.getField(), fieldErrorObject.getDefaultMessage());
