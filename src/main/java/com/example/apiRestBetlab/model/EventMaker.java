@@ -1,12 +1,16 @@
 package com.example.apiRestBetlab.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.security.Timestamp;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -14,18 +18,19 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JacksonXmlRootElement(localName = "Event" )
 public class EventMaker {
-    @JsonIgnoreProperties("I")
+    @JsonProperty("I")
     private Long Id;
-    @JsonIgnoreProperties("DT")
-    private LocalDateTime DateOfTheEvent;
-    @JsonIgnoreProperties("T1")
+    @JsonProperty("DT")
+    @JsonFormat(locale = "true")
+    private Date dateOfEvent ;
+    @JsonProperty("T1")
     private String homeTeam;
-    @JsonIgnoreProperties("T2")
+    @JsonProperty("T2")
     private String visitingTeam;
-    @JsonIgnoreProperties("T1I")
+    @JsonProperty("T1I")
     private Long idHomeTeam;
-    @JsonIgnoreProperties("T2I")
+    @JsonProperty("T2I")
     private Long idVisitingTeam;
-    @JsonIgnoreProperties("BSK")
+    @JsonProperty("BSK")
     private int numberOfBookies;
 }

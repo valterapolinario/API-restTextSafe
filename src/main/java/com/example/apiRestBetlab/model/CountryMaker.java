@@ -8,19 +8,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JacksonXmlRootElement(localName = "Country" )
+@JacksonXmlRootElement(localName = "Region" )
 public class CountryMaker {
     @JsonProperty("I")
-    private Long id;
+    private int id;
     @JsonProperty("N")
-    private String name;
+    private String regionName;
     @JsonProperty("L")
     @JacksonXmlElementWrapper(useWrapping = false)
-    private List<LeagueMaker> LeaguesMaker;
+    private List<LeagueMaker> LeaguesMaker = new ArrayList<LeagueMaker>();
+
 }

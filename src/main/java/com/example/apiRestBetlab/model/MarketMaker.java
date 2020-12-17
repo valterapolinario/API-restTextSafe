@@ -7,20 +7,22 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JacksonXmlRootElement(localName = "markets" , namespace = "http://www.eoddsmaker.net/schemas/markets/2.0")
+@JacksonXmlRootElement(localName = "markets" ,namespace ="http://www.eoddsmaker.net/schemas/markets/2.0")
 public class MarketMaker {
     @JsonProperty("CNT")
     private int cnt;
     @JsonProperty("S")
     @JacksonXmlElementWrapper(useWrapping = false)
-    private List<SportMaker> sportsMaker;
+    private List<SportMaker> sportsMaker = new ArrayList<SportMaker>();
 
 
 }

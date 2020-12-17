@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 @Data
 @NoArgsConstructor
@@ -21,5 +22,7 @@ public class SportMaker {
     private String name ;
     @JsonProperty("C")
     @JacksonXmlElementWrapper(useWrapping = false)
-    private List<CountryMaker> countrysMaker;
+    private List<CountryMaker> countrysMaker = new ArrayList<CountryMaker>();
+
+
 }

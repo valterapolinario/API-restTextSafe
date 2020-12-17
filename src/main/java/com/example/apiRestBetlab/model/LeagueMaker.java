@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -16,11 +17,11 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JacksonXmlRootElement(localName = "League" )
 public class LeagueMaker {
-    @JsonIgnoreProperties("I")
+    @JsonProperty("I")
     private Long id;
-    @JsonIgnoreProperties("N")
-    private String name;
+    @JsonProperty("N")
+    private String leagueName;
     @JsonProperty("E")
     @JacksonXmlElementWrapper(useWrapping = false)
-    private List<EventMaker> eventsMaker;
+    private List<EventMaker> eventsMaker = new ArrayList<EventMaker>();
 }
