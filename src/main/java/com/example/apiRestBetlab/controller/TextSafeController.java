@@ -24,20 +24,20 @@ public class TextSafeController {
 
   private final TextSafeService service;
   
-/*  @GetMapping
+  @GetMapping
   public ResponseEntity<Page<TextSafeDTO>> findPages(
           @PageableDefault(sort = "id",
           direction = Sort.Direction.ASC) Pageable page) {
 
     return ResponseEntity.ok().body(service.listAllPages(page));
-  }**/
+  }
 
-/*  @PostMapping
+ @PostMapping
   public ResponseEntity<TextSafeDTO> insert(@Valid @RequestBody TextSafe entity) {
 
     return ResponseEntity.ok().body(service.insert(entity));
 
-  }**/
+  }
 
 
 }

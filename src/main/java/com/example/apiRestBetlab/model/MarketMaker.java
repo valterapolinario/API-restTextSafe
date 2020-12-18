@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -17,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JacksonXmlRootElement(localName = "markets" ,namespace ="http://www.eoddsmaker.net/schemas/markets/2.0")
-public class MarketMaker {
+public class MarketMaker  {
     @JsonProperty("CNT")
     private int cnt;
     @JsonProperty("S")

@@ -27,8 +27,11 @@ public class TextSafeService {
   private final TextSafeDao dao;
 
 
+  @Transactional(readOnly = true)
+  public Page<TextSafeDTO> listAllPages(Pageable pageable) {
 
-
+    return dao.findAll(pageable).map(this::convertToDto);
+  }
 
 
 
