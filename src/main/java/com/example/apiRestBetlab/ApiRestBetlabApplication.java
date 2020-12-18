@@ -2,6 +2,7 @@ package com.example.apiRestBetlab;
 
 import ch.qos.logback.classic.Logger;
 import com.example.apiRestBetlab.model.CountryMaker;
+import com.example.apiRestBetlab.model.EventMaker;
 import com.example.apiRestBetlab.model.MarketMaker;
 import com.example.apiRestBetlab.services.MarketMakerService;
 import com.example.apiRestBetlab.services.TextSafeService;
@@ -10,14 +11,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
+import java.util.List;
+
 @Log4j2
 @SpringBootApplication
 public class ApiRestBetlabApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		SpringApplication.run(ApiRestBetlabApplication.class, args);
 
-/*		MarketMakerService service = new MarketMakerService();
+		MarketMakerService service = new MarketMakerService();
 		try {
 		MarketMaker maker = service.pojoBuilder();
 
@@ -27,13 +30,13 @@ public class ApiRestBetlabApplication {
 									.getLeaguesMaker()
 									.forEach(leagueMaker -> leagueMaker
 											.getEventsMaker()
-											.forEach(eventMaker -> System.out.println(
+											.forEach(eventMaker -> log.info(
 													eventMaker.getHomeTeam()
 															+ " "
 															+ "X"
 															+ " "
 															+ eventMaker.getVisitingTeam()
-															+eventMaker.getDateOfEvent().toInstant())
+															)
 											)
 									)
 							)
@@ -42,7 +45,10 @@ public class ApiRestBetlabApplication {
 					);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}**/
+		}
+
+
 	}
+
 
 }

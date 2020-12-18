@@ -1,5 +1,6 @@
 package com.example.apiRestBetlab.controller;
 
+import com.example.apiRestBetlab.model.EventMaker;
 import com.example.apiRestBetlab.model.MarketMaker;
 import com.example.apiRestBetlab.model.TextSafe;
 import com.example.apiRestBetlab.services.MarketMakerService;
@@ -18,9 +19,8 @@ public class MarketMakerController {
     @GetMapping
     public List<MarketMaker> findall() throws IOException {
 
-        log.info(MarketMakerService.pojoBuilder()
-                );
-        return List.of(MarketMakerService.pojoBuilder());
+
+        return null ; //List.of(MarketMakerService.pojoBuilder());
     }
 
 }

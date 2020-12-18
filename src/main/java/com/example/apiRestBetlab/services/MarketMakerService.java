@@ -1,6 +1,8 @@
 package com.example.apiRestBetlab.services;
 
+import com.example.apiRestBetlab.model.EventMaker;
 import com.example.apiRestBetlab.model.MarketMaker;
+import com.example.apiRestBetlab.model.SportMaker;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.Data;
 import org.springframework.http.ResponseEntity;
